@@ -1,0 +1,37 @@
+{
+  "name": "Vue3",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": "..",
+    "args": {
+      "VUE_CLI_VERSION": "latest"
+    }
+  },
+
+  // Configure tool-specific properties.
+  "customizations": {
+    // Configure properties specific to VS Code.
+    "vscode": {
+      // Add the IDs of extensions you want installed when the container is created.
+      "extensions": [
+        "Vue.volar",
+        "Vue.vscode-typescript-vue-plugin",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode"
+      ]
+    }
+  },
+
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  "forwardPorts": [],
+
+  // Use 'postCreateCommand' to run commands after the container is created.
+  // "postCreateCommand": "uname -a",
+
+  // Set `remoteUser` to `root` to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+  "remoteUser": "node",
+
+  // 挂载示例：挂载根目录下的vue-scaffold-ui到容器内/home/node/vue-scaffold-ui，实际上根目录已被默认挂载到容器内/workspace中
+  //"source=${localWorkspaceFolder}/vue-scaffold-ui,target=/home/node/vue-scaffold-ui,type=bind,consistency=cached"
+  "mounts": []
+}
