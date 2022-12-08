@@ -12,3 +12,16 @@ Dev Container For Vue3 & TS & Yarn & yrm
     - git config --global https.proxy 'http://[宿主机局域网IP]:7890'
 
 - vscode新建终端会进入容器内的shell，进入到容器内`/workspace/当前文件夹名称`，使用`git clone`拉取项目进行开发
+
+### 字体
+为了终端图标显示正常，需要在vscode为容器对应的settings.json设置字体（[Powerline fonts](https://github.com/powerline/fonts) 中的`PL`结尾的字体也可以）
+```
+{
+    "terminal.integrated.fontFamily": "CaskaydiaCove NF Mono"
+}
+```
+
+> 已安装[Powerlevel10k](https://github.com/romkatv/powerlevel10k)，如需启用请更改`.zshrc`中如下设置为
+```
+ZSH_THEME="powerlevel10k/powerlevel10k"
+```

@@ -20,8 +20,6 @@ RUN export https_proxy=$HTTPS_PROXY && git clone --depth=1 https://github.com/ro
     && git clone https://github.com/zsh-users/zsh-completions.git /home/node/.oh-my-zsh/custom/plugins/zsh-completions \
     && git clone https://github.com/supercrabtree/k.git /home/node/.oh-my-zsh/custom/plugins/k
 
-RUN export https_proxy=$HTTPS_PROXY && git clone https://github.com/powerline/fonts.git --depth=1 && ./fonts/install.sh && rm -rf fonts
-
 ADD --chown=node /.devcontainer/.zshrc /home/node
 
 EXPOSE 5173
