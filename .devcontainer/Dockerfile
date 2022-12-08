@@ -8,6 +8,14 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 ARG VUE_CLI_VERSION
 RUN su node -c "umask 0002 && npm install -g @vue/cli@${VUE_CLI_VERSION} http-server yrm"
 
-WORKDIR /app
+ENV SHELL /bin/zsh
+ARG HTTP_PROXY
+ARG HTTPS_PROXY
+
+RUN export https_proxy=$HTTPS_PROXY && wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O - | zsh || true
+
+RUN export https_proxy=$HTTPS_PROXY && git clone --depth=1 https://github.com/romkatv/powerlevel10k.git /home/node/.oh-my-zsh/custom/themes/powerlevel10k
+
+ADD --chown=node /.devcontainer/.zshrc /home/node
 
 EXPOSE 5173
