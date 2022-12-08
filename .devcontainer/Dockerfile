@@ -14,7 +14,13 @@ ARG HTTPS_PROXY
 
 RUN export https_proxy=$HTTPS_PROXY && wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O - | zsh || true
 
-RUN export https_proxy=$HTTPS_PROXY && git clone --depth=1 https://github.com/romkatv/powerlevel10k.git /home/node/.oh-my-zsh/custom/themes/powerlevel10k
+RUN export https_proxy=$HTTPS_PROXY && git clone --depth=1 https://github.com/romkatv/powerlevel10k.git /home/node/.oh-my-zsh/custom/themes/powerlevel10k \
+    && git clone https://github.com/zsh-users/zsh-syntax-highlighting.git /home/node/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting \
+    && git clone https://github.com/zsh-users/zsh-autosuggestions.git /home/node/.oh-my-zsh/custom/plugins/zsh-autosuggestions \
+    && git clone https://github.com/zsh-users/zsh-completions.git /home/node/.oh-my-zsh/custom/plugins/zsh-completions \
+    && git clone https://github.com/supercrabtree/k.git /home/node/.oh-my-zsh/custom/plugins/k
+
+RUN export https_proxy=$HTTPS_PROXY && git clone https://github.com/powerline/fonts.git --depth=1 && ./fonts/install.sh && rm -rf fonts
 
 ADD --chown=node /.devcontainer/.zshrc /home/node
 
