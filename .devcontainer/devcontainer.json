@@ -1,3 +1,5 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/java
 {
   "name": "Vue3",
   "build": {
@@ -35,5 +37,11 @@
 
   // 挂载示例：挂载根目录下的vue-scaffold-ui到容器内/home/node/vue-scaffold-ui，实际上根目录已被默认挂载到容器内/workspace中
   //"source=${localWorkspaceFolder}/vue-scaffold-ui,target=/home/node/vue-scaffold-ui,type=bind,consistency=cached"
-  "mounts": []
+  "mounts": [
+    {
+      "source": "dev_vue3_data",
+      "target": "${containerWorkspaceFolder}/projects",
+      "type": "volume"
+    }
+  ]
 }

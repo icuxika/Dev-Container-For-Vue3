@@ -14,6 +14,11 @@ Dev Container For Vue3 & TS & Yarn & yrm
 - vscode新建终端会进入容器内的shell，进入到容器内`/workspaces/Dev-Container-For-Vue3`
 - 此项目git已忽略目录`projects`，可创建`/workspaces/Dev-Container-For-Vue3/projects`，并在`projects`中使用`git clone`拉取项目进行开发
 
+- 为了保证 projects 目录下的文件性能（相比自动挂载的workspaces），需要先创建如下 volume
+  > `docker volume create dev_vue3_data`
+
+- 对于`projects`目录需要更新权限 `sudo chown -R node projects`
+
 ### 字体
 为了终端图标显示正常，需要在vscode为容器对应的settings.json设置字体（[Powerline fonts](https://github.com/powerline/fonts) 中的`PL`结尾的字体也可以）
 ```
